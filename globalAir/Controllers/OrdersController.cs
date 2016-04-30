@@ -11,107 +11,107 @@ using ArcadePool.Models;
 
 namespace ArcadePool.Controllers
 {
-    public class MachinesController : Controller
+    public class OrdersController : Controller
     {
         private ArcadePoolDBContext db = new ArcadePoolDBContext();
 
-        // GET: Machines
+        // GET: Orders
         public ActionResult Index()
         {
-            return View(db.Machines.ToList());
+            return View(db.Orders.ToList());
         }
 
-        // GET: Machines/Details/5
+        // GET: Orders/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Machine machine = db.Machines.Find(id);
-            if (machine == null)
+            Order order = db.Orders.Find(id);
+            if (order == null)
             {
                 return HttpNotFound();
             }
-            return View(machine);
+            return View(order);
         }
 
-        // GET: Machines/Create
+        // GET: Orders/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Machines/Create
+        // POST: Orders/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MachineID,SerialNumber,PurchaseDate,DailyRentalprice")] Machine machine)
+        public ActionResult Create([Bind(Include = "OrderID,ContractNumber,OrderDate,ShippingDate,RentalDate,ReturnDate,Price")] Order order)
         {
             if (ModelState.IsValid)
             {
-                db.Machines.Add(machine);
+                db.Orders.Add(order);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(machine);
+            return View(order);
         }
 
-        // GET: Machines/Edit/5
+        // GET: Orders/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Machine machine = db.Machines.Find(id);
-            if (machine == null)
+            Order order = db.Orders.Find(id);
+            if (order == null)
             {
                 return HttpNotFound();
             }
-            return View(machine);
+            return View(order);
         }
 
-        // POST: Machines/Edit/5
+        // POST: Orders/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MachineID,SerialNumber,PurchaseDate,DailyRentalprice")] Machine machine)
+        public ActionResult Edit([Bind(Include = "OrderID,ContractNumber,OrderDate,ShippingDate,RentalDate,ReturnDate,Price")] Order order)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(machine).State = EntityState.Modified;
+                db.Entry(order).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(machine);
+            return View(order);
         }
 
-        // GET: Machines/Delete/5
+        // GET: Orders/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Machine machine = db.Machines.Find(id);
-            if (machine == null)
+            Order order = db.Orders.Find(id);
+            if (order == null)
             {
                 return HttpNotFound();
             }
-            return View(machine);
+            return View(order);
         }
 
-        // POST: Machines/Delete/5
+        // POST: Orders/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Machine machine = db.Machines.Find(id);
-            db.Machines.Remove(machine);
+            Order order = db.Orders.Find(id);
+            db.Orders.Remove(order);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

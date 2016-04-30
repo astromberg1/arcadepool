@@ -158,11 +158,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CarriersController.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
+    <Compile Include="Controllers\GametitlesController.cs" />
+    <Compile Include="Controllers\MachinesController.cs" />
+    <Compile Include="Controllers\OrderMachinesController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\ProvidersController.cs" />
     <Compile Include="Models\Carrier.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Customer.cs" />
-    <Compile Include="Controllers\GametitlesController.cs" />
-    <Compile Include="Controllers\MachinesController.cs" />
     <Compile Include="Models\Machine.cs" />
     <Compile Include="Models\Gametitle.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -219,6 +224,16 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Carriers\Create.cshtml" />
+    <Content Include="Views\Carriers\Delete.cshtml" />
+    <Content Include="Views\Carriers\Details.cshtml" />
+    <Content Include="Views\Carriers\Edit.cshtml" />
+    <Content Include="Views\Carriers\Index.cshtml" />
+    <Content Include="Views\Customers\Create.cshtml" />
+    <Content Include="Views\Customers\Delete.cshtml" />
+    <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Customers\Edit.cshtml" />
+    <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Gametitles\Create.cshtml" />
     <Content Include="Views\Gametitles\Delete.cshtml" />
     <Content Include="Views\Gametitles\Details.cshtml" />
@@ -229,6 +244,21 @@
     <Content Include="Views\Machines\Details.cshtml" />
     <Content Include="Views\Machines\Edit.cshtml" />
     <Content Include="Views\Machines\Index.cshtml" />
+    <Content Include="Views\Orders\Create.cshtml" />
+    <Content Include="Views\Orders\Delete.cshtml" />
+    <Content Include="Views\Orders\Details.cshtml" />
+    <Content Include="Views\Orders\Edit.cshtml" />
+    <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\OrderMachines\Create.cshtml" />
+    <Content Include="Views\OrderMachines\Delete.cshtml" />
+    <Content Include="Views\OrderMachines\Details.cshtml" />
+    <Content Include="Views\OrderMachines\Edit.cshtml" />
+    <Content Include="Views\OrderMachines\Index.cshtml" />
+    <Content Include="Views\Providers\Create.cshtml" />
+    <Content Include="Views\Providers\Delete.cshtml" />
+    <Content Include="Views\Providers\Details.cshtml" />
+    <Content Include="Views\Providers\Edit.cshtml" />
+    <Content Include="Views\Providers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

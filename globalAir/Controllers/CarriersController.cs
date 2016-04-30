@@ -11,107 +11,107 @@ using ArcadePool.Models;
 
 namespace ArcadePool.Controllers
 {
-    public class MachinesController : Controller
+    public class CarriersController : Controller
     {
         private ArcadePoolDBContext db = new ArcadePoolDBContext();
 
-        // GET: Machines
+        // GET: Carriers
         public ActionResult Index()
         {
-            return View(db.Machines.ToList());
+            return View(db.Carriers.ToList());
         }
 
-        // GET: Machines/Details/5
+        // GET: Carriers/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Machine machine = db.Machines.Find(id);
-            if (machine == null)
+            Carrier carrier = db.Carriers.Find(id);
+            if (carrier == null)
             {
                 return HttpNotFound();
             }
-            return View(machine);
+            return View(carrier);
         }
 
-        // GET: Machines/Create
+        // GET: Carriers/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Machines/Create
+        // POST: Carriers/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MachineID,SerialNumber,PurchaseDate,DailyRentalprice")] Machine machine)
+        public ActionResult Create([Bind(Include = "CarrierID,CarrierName")] Carrier carrier)
         {
             if (ModelState.IsValid)
             {
-                db.Machines.Add(machine);
+                db.Carriers.Add(carrier);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(machine);
+            return View(carrier);
         }
 
-        // GET: Machines/Edit/5
+        // GET: Carriers/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Machine machine = db.Machines.Find(id);
-            if (machine == null)
+            Carrier carrier = db.Carriers.Find(id);
+            if (carrier == null)
             {
                 return HttpNotFound();
             }
-            return View(machine);
+            return View(carrier);
         }
 
-        // POST: Machines/Edit/5
+        // POST: Carriers/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MachineID,SerialNumber,PurchaseDate,DailyRentalprice")] Machine machine)
+        public ActionResult Edit([Bind(Include = "CarrierID,CarrierName")] Carrier carrier)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(machine).State = EntityState.Modified;
+                db.Entry(carrier).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(machine);
+            return View(carrier);
         }
 
-        // GET: Machines/Delete/5
+        // GET: Carriers/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Machine machine = db.Machines.Find(id);
-            if (machine == null)
+            Carrier carrier = db.Carriers.Find(id);
+            if (carrier == null)
             {
                 return HttpNotFound();
             }
-            return View(machine);
+            return View(carrier);
         }
 
-        // POST: Machines/Delete/5
+        // POST: Carriers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Machine machine = db.Machines.Find(id);
-            db.Machines.Remove(machine);
+            Carrier carrier = db.Carriers.Find(id);
+            db.Carriers.Remove(carrier);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

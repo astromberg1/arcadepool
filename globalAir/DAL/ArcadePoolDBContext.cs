@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 using System.Data.SqlClient;
 using ArcadePool.Models;
+using ArcadePool.Controllers;
 
 namespace ArcadePool.DAL
     {

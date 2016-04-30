@@ -11,107 +11,107 @@ using ArcadePool.Models;
 
 namespace ArcadePool.Controllers
 {
-    public class MachinesController : Controller
+    public class OrderMachinesController : Controller
     {
         private ArcadePoolDBContext db = new ArcadePoolDBContext();
 
-        // GET: Machines
+        // GET: OrderMachines
         public ActionResult Index()
         {
-            return View(db.Machines.ToList());
+            return View(db.Orderlines.ToList());
         }
 
-        // GET: Machines/Details/5
+        // GET: OrderMachines/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Machine machine = db.Machines.Find(id);
-            if (machine == null)
+            OrderMachine orderMachine = db.Orderlines.Find(id);
+            if (orderMachine == null)
             {
                 return HttpNotFound();
             }
-            return View(machine);
+            return View(orderMachine);
         }
 
-        // GET: Machines/Create
+        // GET: OrderMachines/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Machines/Create
+        // POST: OrderMachines/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MachineID,SerialNumber,PurchaseDate,DailyRentalprice")] Machine machine)
+        public ActionResult Create([Bind(Include = "OrderId,MachineId,OrderLineNumber,Price")] OrderMachine orderMachine)
         {
             if (ModelState.IsValid)
             {
-                db.Machines.Add(machine);
+                db.Orderlines.Add(orderMachine);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(machine);
+            return View(orderMachine);
         }
 
-        // GET: Machines/Edit/5
+        // GET: OrderMachines/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Machine machine = db.Machines.Find(id);
-            if (machine == null)
+            OrderMachine orderMachine = db.Orderlines.Find(id);
+            if (orderMachine == null)
             {
                 return HttpNotFound();
             }
-            return View(machine);
+            return View(orderMachine);
         }
 
-        // POST: Machines/Edit/5
+        // POST: OrderMachines/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MachineID,SerialNumber,PurchaseDate,DailyRentalprice")] Machine machine)
+        public ActionResult Edit([Bind(Include = "OrderId,MachineId,OrderLineNumber,Price")] OrderMachine orderMachine)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(machine).State = EntityState.Modified;
+                db.Entry(orderMachine).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(machine);
+            return View(orderMachine);
         }
 
-        // GET: Machines/Delete/5
+        // GET: OrderMachines/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Machine machine = db.Machines.Find(id);
-            if (machine == null)
+            OrderMachine orderMachine = db.Orderlines.Find(id);
+            if (orderMachine == null)
             {
                 return HttpNotFound();
             }
-            return View(machine);
+            return View(orderMachine);
         }
 
-        // POST: Machines/Delete/5
+        // POST: OrderMachines/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Machine machine = db.Machines.Find(id);
-            db.Machines.Remove(machine);
+            OrderMachine orderMachine = db.Orderlines.Find(id);
+            db.Orderlines.Remove(orderMachine);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

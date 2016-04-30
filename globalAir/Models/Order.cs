@@ -27,11 +27,13 @@ namespace ArcadePool.Models
 
         public Carrier CarrierID { get; set; }
 
-        public List<Machine> Machines { get; set; }
+        //public List<Machine> Machines { get; set; }
+
+        public virtual ICollection<OrderMachine> Orderlines { get; set; }
 
         public Order()
             {
-            this.Machines = new List<Machine>();
+          //  this.Machines = new List<Machine>();
             //this.Routes = new HashSet<>();
             }
 

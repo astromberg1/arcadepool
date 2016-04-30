@@ -11,107 +11,107 @@ using ArcadePool.Models;
 
 namespace ArcadePool.Controllers
 {
-    public class MachinesController : Controller
+    public class ProvidersController : Controller
     {
         private ArcadePoolDBContext db = new ArcadePoolDBContext();
 
-        // GET: Machines
+        // GET: Providers
         public ActionResult Index()
         {
-            return View(db.Machines.ToList());
+            return View(db.Providers.ToList());
         }
 
-        // GET: Machines/Details/5
+        // GET: Providers/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Machine machine = db.Machines.Find(id);
-            if (machine == null)
+            Provider provider = db.Providers.Find(id);
+            if (provider == null)
             {
                 return HttpNotFound();
             }
-            return View(machine);
+            return View(provider);
         }
 
-        // GET: Machines/Create
+        // GET: Providers/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Machines/Create
+        // POST: Providers/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MachineID,SerialNumber,PurchaseDate,DailyRentalprice")] Machine machine)
+        public ActionResult Create([Bind(Include = "ProviderID,Rating,FirstName,LastName,CompanyName,OrganisationsNummer,Street,City,County,zipCode,PhoneNr,Email")] Provider provider)
         {
             if (ModelState.IsValid)
             {
-                db.Machines.Add(machine);
+                db.Providers.Add(provider);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(machine);
+            return View(provider);
         }
 
-        // GET: Machines/Edit/5
+        // GET: Providers/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Machine machine = db.Machines.Find(id);
-            if (machine == null)
+            Provider provider = db.Providers.Find(id);
+            if (provider == null)
             {
                 return HttpNotFound();
             }
-            return View(machine);
+            return View(provider);
         }
 
-        // POST: Machines/Edit/5
+        // POST: Providers/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MachineID,SerialNumber,PurchaseDate,DailyRentalprice")] Machine machine)
+        public ActionResult Edit([Bind(Include = "ProviderID,Rating,FirstName,LastName,CompanyName,OrganisationsNummer,Street,City,County,zipCode,PhoneNr,Email")] Provider provider)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(machine).State = EntityState.Modified;
+                db.Entry(provider).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(machine);
+            return View(provider);
         }
 
-        // GET: Machines/Delete/5
+        // GET: Providers/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Machine machine = db.Machines.Find(id);
-            if (machine == null)
+            Provider provider = db.Providers.Find(id);
+            if (provider == null)
             {
                 return HttpNotFound();
             }
-            return View(machine);
+            return View(provider);
         }
 
-        // POST: Machines/Delete/5
+        // POST: Providers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Machine machine = db.Machines.Find(id);
-            db.Machines.Remove(machine);
+            Provider provider = db.Providers.Find(id);
+            db.Providers.Remove(provider);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

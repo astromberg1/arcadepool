@@ -18,14 +18,14 @@ namespace ArcadePool.Models
         public int MachineId { get; set; }
 
         // Add the navigation properties
-        public virtual Order Order { get; set; }
-        public virtual Machine Machine { get; set; }
+    //    public virtual Order Order { get; set; }
+    //    public virtual Machine Machine { get; set; }
 
         // Add any additional fields you need
         public int OrderLineNumber { get; set; }
         public decimal Price { get; set; }
 
-        public Machine MachineID { get; set; }
+    //    public Machine MachineID { get; set; }
 
         public Gametitle GameTitleID { get; set; }
 

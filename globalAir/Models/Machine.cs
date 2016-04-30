@@ -18,12 +18,14 @@ namespace ArcadePool.Models
         //[ForeignKey("Provider")]
         public Provider ProviderID { get; set; }
 
-        public List<OrderMachine> Orders { get; set; }
+        //public List<OrderMachine> Orders { get; set; }
+
+        public virtual ICollection<OrderMachine> Orderlines { get; set; }
 
         public Machine()
             {
            
-            this.Orders = new List<OrderMachine>();
+          //  this.Orders = new List<OrderMachine>();
 
             }
 

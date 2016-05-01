@@ -1,4 +1,4 @@
-namespace globalAir.Migrations
+namespace ArcadePool.Migrations
 {
     using System;
     using System.Data.Entity;

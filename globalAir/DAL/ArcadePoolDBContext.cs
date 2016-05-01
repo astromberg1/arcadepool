@@ -8,6 +8,9 @@ using System.Data.SqlClient;
 using ArcadePool.Models;
 using ArcadePool.Controllers;
 
+
+//Enable-Migrations -ContextTypeName ArcadePool.DAL.ArcadePoolDBContext –EnableAutomaticMigration:$true -Force
+
 namespace ArcadePool.DAL
     {
    public class ArcadePoolDBContext : DbContext

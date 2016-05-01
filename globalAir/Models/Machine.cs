@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace ArcadePool.Models
     {
@@ -11,7 +12,13 @@ namespace ArcadePool.Models
         {
         public int MachineID { get; set; }
         public string SerialNumber { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Start Date")]
+
         public DateTime PurchaseDate { get; set; }
+        [DataType(DataType.Currency)]
+        [Column(TypeName = "money")]
         public decimal DailyRentalprice { get; set; }
         public Gametitle Gametitle { get; set; }
 

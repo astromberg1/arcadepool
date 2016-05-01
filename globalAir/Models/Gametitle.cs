@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ArcadePool.Models
     {
@@ -23,7 +25,12 @@ namespace ArcadePool.Models
         
 
         public int GametitleID { get; set; }
+        [StringLength(50, MinimumLength = 3)]
         public string GameName { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Start Date")]
+
         public DateTime ReleaseDate { get; set; }
         public string Manufacturer { get; set; }
         public EnumPopularity Popularity { get; set; }

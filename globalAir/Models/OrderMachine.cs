@@ -23,6 +23,8 @@ namespace ArcadePool.Models
 
         // Add any additional fields you need
         public int OrderLineNumber { get; set; }
+        [DataType(DataType.Currency)]
+        [Column(TypeName = "money")]
         public decimal Price { get; set; }
 
     //    public Machine MachineID { get; set; }

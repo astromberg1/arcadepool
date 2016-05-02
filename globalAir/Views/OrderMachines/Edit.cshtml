@@ -15,9 +15,9 @@
         <h4>OrderMachine</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.OrderId)
+        @Html.HiddenFor(model => model.OrderID)
 
-        @Html.HiddenFor(model => model.MachineId)
+        @Html.HiddenFor(model => model.MachineID)
 
         <div class="form-group">
             @Html.LabelFor(model => model.OrderLineNumber, htmlAttributes: new { @class = "control-label col-md-2" })

@@ -40,9 +40,9 @@ namespace globalAir.Controllers
         // GET: Orders/Create
         public ActionResult Create()
         {
-            ViewBag.CarrierRefId = new SelectList(db.Carriers, "CarrierID", "CarrierName");
-            ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "FirstName");
-            ViewBag.ProviderID = new SelectList(db.Providers, "ProviderID", "FirstName");
+            ViewBag.CarrierID = new SelectList(db.Carriers, "CarrierID", "CarrierName");
+            ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "OrganisationsNummer");
+            ViewBag.ProviderID = new SelectList(db.Providers, "ProviderID", "OrganisationsNummer");
             return View();
         }
 
@@ -51,7 +51,7 @@ namespace globalAir.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "OrderID,ContractNumber,OrderDate,ShippingDate,RentalDate,ReturnDate,Price,CustomerID,ProviderID,CarrierRefId")] Order order)
+        public ActionResult Create([Bind(Include = "OrderID,ContractNumber,OrderDate,ShippingDate,RentalDate,ReturnDate,Price,CustomerID,ProviderID,CarrierID")] Order order)
         {
             if (ModelState.IsValid)
             {
@@ -60,9 +60,9 @@ namespace globalAir.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CarrierRefId = new SelectList(db.Carriers, "CarrierID", "CarrierName", order.CarrierRefId);
-            ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "FirstName", order.CustomerID);
-            ViewBag.ProviderID = new SelectList(db.Providers, "ProviderID", "FirstName", order.ProviderID);
+            ViewBag.CarrierID = new SelectList(db.Carriers, "CarrierID", "CarrierName", order.CarrierID);
+            ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "OrganisationsNummer", order.CustomerID);
+            ViewBag.ProviderID = new SelectList(db.Providers, "ProviderID", "OrganisationsNummer", order.ProviderID);
             return View(order);
         }
 
@@ -78,9 +78,9 @@ namespace globalAir.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.CarrierRefId = new SelectList(db.Carriers, "CarrierID", "CarrierName", order.CarrierRefId);
-            ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "FirstName", order.CustomerID);
-            ViewBag.ProviderID = new SelectList(db.Providers, "ProviderID", "FirstName", order.ProviderID);
+            ViewBag.CarrierID = new SelectList(db.Carriers, "CarrierID", "CarrierName", order.CarrierID);
+            ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "OrganisationsNummer", order.CustomerID);
+            ViewBag.ProviderID = new SelectList(db.Providers, "ProviderID", "OrganisationsNummer", order.ProviderID);
             return View(order);
         }
 
@@ -89,7 +89,7 @@ namespace globalAir.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "OrderID,ContractNumber,OrderDate,ShippingDate,RentalDate,ReturnDate,Price,CustomerID,ProviderID,CarrierRefId")] Order order)
+        public ActionResult Edit([Bind(Include = "OrderID,ContractNumber,OrderDate,ShippingDate,RentalDate,ReturnDate,Price,CustomerID,ProviderID,CarrierID")] Order order)
         {
             if (ModelState.IsValid)
             {
@@ -97,9 +97,9 @@ namespace globalAir.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CarrierRefId = new SelectList(db.Carriers, "CarrierID", "CarrierName", order.CarrierRefId);
-            ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "FirstName", order.CustomerID);
-            ViewBag.ProviderID = new SelectList(db.Providers, "ProviderID", "FirstName", order.ProviderID);
+            ViewBag.CarrierID = new SelectList(db.Carriers, "CarrierID", "CarrierName", order.CarrierID);
+            ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "OrganisationsNummer", order.CustomerID);
+            ViewBag.ProviderID = new SelectList(db.Providers, "ProviderID", "OrganisationsNummer", order.ProviderID);
             return View(order);
         }
 

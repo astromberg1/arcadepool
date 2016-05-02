@@ -24,11 +24,13 @@ namespace ArcadePool.Models
         {
         public int ProviderID { get; set; }
 
-        public enumRating Rating { get; set; }
 
         public List<Machine> Machines { get; set; }
 
         public List<Order> Orders { get; set; }
+
+
+        public enumRating Rating { get; set; }
 
         //public User User { get; set; }
         public Provider():base()

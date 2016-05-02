@@ -47,7 +47,7 @@ namespace globalAir.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProviderID,Rating,FirstName,LastName,CompanyName,OrganisationsNummer,Street,City,County,zipCode,PhoneNr,Email")] Provider provider)
+        public ActionResult Create([Bind(Include = "ProviderID,Rating,OrganisationsNummer,CompanyName,FirstName,LastName,Street,City,County,zipCode,PhoneNr,Email")] Provider provider)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace globalAir.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProviderID,Rating,FirstName,LastName,CompanyName,OrganisationsNummer,Street,City,County,zipCode,PhoneNr,Email")] Provider provider)
+        public ActionResult Edit([Bind(Include = "ProviderID,Rating,OrganisationsNummer,CompanyName,FirstName,LastName,Street,City,County,zipCode,PhoneNr,Email")] Provider provider)
         {
             if (ModelState.IsValid)
             {

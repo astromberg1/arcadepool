@@ -12,14 +12,17 @@ namespace ArcadePool.Models
         {
         // Set the column order so it appears nice in the database
         [Key, Column(Order = 0)]
-        public int OrderId { get; set; }
+        public int OrderID { get; set; }
+        public virtual Order Order { get; set; }
 
         [Key, Column(Order = 1)]
-        public int MachineId { get; set; }
+        public int MachineID { get; set; }
+
+        public virtual Machine Machine { get; set; }
 
         // Add the navigation properties
-    //    public virtual Order Order { get; set; }
-    //    public virtual Machine Machine { get; set; }
+        //    public virtual Order Order { get; set; }
+        //    public virtual Machine Machine { get; set; }
 
         // Add any additional fields you need
         public int OrderLineNumber { get; set; }

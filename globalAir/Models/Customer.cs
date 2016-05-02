@@ -13,12 +13,14 @@ namespace ArcadePool.Models
     public class Customer:User
         {
         public int CustomerID { get; set; }
-        [DataType(DataType.Currency)]
-        [Column(TypeName = "money")]
-        public decimal CreditLine { get; set; }
+       
 
         //public User User { get; set; }
         public ICollection<Order> Orders { get; set; }
+
+        [DataType(DataType.Currency)]
+        [Column(TypeName = "money")]
+        public decimal CreditLine { get; set; }
         public Customer():base()
             {
             this.Orders = new List<Order>();

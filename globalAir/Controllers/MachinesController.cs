@@ -41,7 +41,7 @@ namespace globalAir.Controllers
         public ActionResult Create()
         {
             ViewBag.GametitleID = new SelectList(db.Gametitles, "GametitleID", "GameName");
-            ViewBag.ProviderID = new SelectList(db.Providers, "ProviderID", "FirstName");
+            ViewBag.ProviderID = new SelectList(db.Providers, "ProviderID", "OrganisationsNummer");
             return View();
         }
 
@@ -60,7 +60,7 @@ namespace globalAir.Controllers
             }
 
             ViewBag.GametitleID = new SelectList(db.Gametitles, "GametitleID", "GameName", machine.GametitleID);
-            ViewBag.ProviderID = new SelectList(db.Providers, "ProviderID", "FirstName", machine.ProviderID);
+            ViewBag.ProviderID = new SelectList(db.Providers, "ProviderID", "OrganisationsNummer", machine.ProviderID);
             return View(machine);
         }
 
@@ -77,7 +77,7 @@ namespace globalAir.Controllers
                 return HttpNotFound();
             }
             ViewBag.GametitleID = new SelectList(db.Gametitles, "GametitleID", "GameName", machine.GametitleID);
-            ViewBag.ProviderID = new SelectList(db.Providers, "ProviderID", "FirstName", machine.ProviderID);
+            ViewBag.ProviderID = new SelectList(db.Providers, "ProviderID", "OrganisationsNummer", machine.ProviderID);
             return View(machine);
         }
 
@@ -95,7 +95,7 @@ namespace globalAir.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.GametitleID = new SelectList(db.Gametitles, "GametitleID", "GameName", machine.GametitleID);
-            ViewBag.ProviderID = new SelectList(db.Providers, "ProviderID", "FirstName", machine.ProviderID);
+            ViewBag.ProviderID = new SelectList(db.Providers, "ProviderID", "OrganisationsNummer", machine.ProviderID);
             return View(machine);
         }
 

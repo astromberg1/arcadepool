@@ -43,10 +43,9 @@ namespace ArcadePool.Models
         public virtual Provider Provider { get; set; }
 
         //Foreign key for Standard
-        public int CarrierRefId { get; set; }
+        [ForeignKey("Carrier")]
+        public int CarrierID{ get; set; }
 
-        [ForeignKey("CarrierRefId")]
-        
         public Carrier Carrier { get; set; }
 
         //public List<Machine> Machines { get; set; }

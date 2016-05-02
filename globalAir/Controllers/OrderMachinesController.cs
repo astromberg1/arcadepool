@@ -18,7 +18,8 @@ namespace globalAir.Controllers
         // GET: OrderMachines
         public ActionResult Index()
         {
-            return View(db.Orderlines.ToList());
+            var orderlines = db.Orderlines.Include(o => o.Machine).Include(o => o.Order);
+            return View(orderlines.ToList());
         }
 
         // GET: OrderMachines/Details/5
@@ -39,6 +40,8 @@ namespace globalAir.Controllers
         // GET: OrderMachines/Create
         public ActionResult Create()
         {
+            ViewBag.MachineID = new SelectList(db.Machines, "MachineID", "SerialNumber");
+            ViewBag.OrderID = new SelectList(db.Orders, "OrderID", "OrderID");
             return View();
         }
 
@@ -47,7 +50,7 @@ namespace globalAir.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "OrderId,MachineId,OrderLineNumber,Price")] OrderMachine orderMachine)
+        public ActionResult Create([Bind(Include = "OrderID,MachineID,OrderLineNumber,Price")] OrderMachine orderMachine)
         {
             if (ModelState.IsValid)
             {
@@ -56,6 +59,8 @@ namespace globalAir.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.MachineID = new SelectList(db.Machines, "MachineID", "SerialNumber", orderMachine.MachineID);
+            ViewBag.OrderID = new SelectList(db.Orders, "OrderID", "OrderID", orderMachine.OrderID);
             return View(orderMachine);
         }
 
@@ -71,6 +76,8 @@ namespace globalAir.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.MachineID = new SelectList(db.Machines, "MachineID", "SerialNumber", orderMachine.MachineID);
+            ViewBag.OrderID = new SelectList(db.Orders, "OrderID", "OrderID", orderMachine.OrderID);
             return View(orderMachine);
         }
 
@@ -79,7 +86,7 @@ namespace globalAir.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "OrderId,MachineId,OrderLineNumber,Price")] OrderMachine orderMachine)
+        public ActionResult Edit([Bind(Include = "OrderID,MachineID,OrderLineNumber,Price")] OrderMachine orderMachine)
         {
             if (ModelState.IsValid)
             {
@@ -87,6 +94,8 @@ namespace globalAir.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.MachineID = new SelectList(db.Machines, "MachineID", "SerialNumber", orderMachine.MachineID);
+            ViewBag.OrderID = new SelectList(db.Orders, "OrderID", "OrderID", orderMachine.OrderID);
             return View(orderMachine);
         }
 

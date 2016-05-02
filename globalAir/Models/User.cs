@@ -10,18 +10,24 @@ namespace ArcadePool.Models
     public abstract class User
         {
         //       public int ID { get; set; }
+        [StringLength(50, MinimumLength = 3)]
+
+        [DisplayFormat(DataFormatString = "{0:999999-9999}", ApplyFormatInEditMode = true)]
+        public string OrganisationsNummer { get; set; }
+
+        [StringLength(50, MinimumLength = 2)]
+        public string CompanyName { get; set; }
+
 
         [StringLength(50, MinimumLength = 2)]
         public string FirstName { get; set; }
         [StringLength(50, MinimumLength = 3)]
         public string  LastName { get; set; }
-        [StringLength(50, MinimumLength = 2)]
-        public string CompanyName { get; set; }
+      
 
-        [StringLength(50, MinimumLength = 3)]
-        
-        [DisplayFormat(DataFormatString = "{0:999999-9999}", ApplyFormatInEditMode = true)]
-        public string OrganisationsNummer { get; set; }
+
+
+
         [StringLength(50, MinimumLength = 3)]
         public string Street { get; set; }
         [StringLength(50, MinimumLength = 3)]

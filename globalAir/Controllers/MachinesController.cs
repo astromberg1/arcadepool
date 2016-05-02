@@ -9,7 +9,7 @@ using System.Web.Mvc;
 using ArcadePool.DAL;
 using ArcadePool.Models;
 
-namespace ArcadePool.Controllers
+namespace globalAir.Controllers
 {
     public class MachinesController : Controller
     {
@@ -18,7 +18,8 @@ namespace ArcadePool.Controllers
         // GET: Machines
         public ActionResult Index()
         {
-            return View(db.Machines.ToList());
+            var machines = db.Machines.Include(m => m.Gametitle).Include(m => m.Provider);
+            return View(machines.ToList());
         }
 
         // GET: Machines/Details/5
@@ -39,6 +40,8 @@ namespace ArcadePool.Controllers
         // GET: Machines/Create
         public ActionResult Create()
         {
+            ViewBag.GametitleID = new SelectList(db.Gametitles, "GametitleID", "GameName");
+            ViewBag.ProviderID = new SelectList(db.Providers, "ProviderID", "FirstName");
             return View();
         }
 
@@ -47,7 +50,7 @@ namespace ArcadePool.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MachineID,SerialNumber,PurchaseDate,DailyRentalprice")] Machine machine)
+        public ActionResult Create([Bind(Include = "MachineID,SerialNumber,PurchaseDate,DailyRentalprice,GametitleID,ProviderID")] Machine machine)
         {
             if (ModelState.IsValid)
             {
@@ -56,6 +59,8 @@ namespace ArcadePool.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.GametitleID = new SelectList(db.Gametitles, "GametitleID", "GameName", machine.GametitleID);
+            ViewBag.ProviderID = new SelectList(db.Providers, "ProviderID", "FirstName", machine.ProviderID);
             return View(machine);
         }
 
@@ -71,6 +76,8 @@ namespace ArcadePool.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.GametitleID = new SelectList(db.Gametitles, "GametitleID", "GameName", machine.GametitleID);
+            ViewBag.ProviderID = new SelectList(db.Providers, "ProviderID", "FirstName", machine.ProviderID);
             return View(machine);
         }
 
@@ -79,7 +86,7 @@ namespace ArcadePool.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MachineID,SerialNumber,PurchaseDate,DailyRentalprice")] Machine machine)
+        public ActionResult Edit([Bind(Include = "MachineID,SerialNumber,PurchaseDate,DailyRentalprice,GametitleID,ProviderID")] Machine machine)
         {
             if (ModelState.IsValid)
             {
@@ -87,6 +94,8 @@ namespace ArcadePool.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.GametitleID = new SelectList(db.Gametitles, "GametitleID", "GameName", machine.GametitleID);
+            ViewBag.ProviderID = new SelectList(db.Providers, "ProviderID", "FirstName", machine.ProviderID);
             return View(machine);
         }
 

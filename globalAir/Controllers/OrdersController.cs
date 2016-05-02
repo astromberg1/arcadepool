@@ -9,7 +9,7 @@ using System.Web.Mvc;
 using ArcadePool.DAL;
 using ArcadePool.Models;
 
-namespace ArcadePool.Controllers
+namespace globalAir.Controllers
 {
     public class OrdersController : Controller
     {
@@ -18,7 +18,8 @@ namespace ArcadePool.Controllers
         // GET: Orders
         public ActionResult Index()
         {
-            return View(db.Orders.ToList());
+            var orders = db.Orders.Include(o => o.Carrier).Include(o => o.Customer).Include(o => o.Provider);
+            return View(orders.ToList());
         }
 
         // GET: Orders/Details/5
@@ -39,6 +40,9 @@ namespace ArcadePool.Controllers
         // GET: Orders/Create
         public ActionResult Create()
         {
+            ViewBag.CarrierRefId = new SelectList(db.Carriers, "CarrierID", "CarrierName");
+            ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "FirstName");
+            ViewBag.ProviderID = new SelectList(db.Providers, "ProviderID", "FirstName");
             return View();
         }
 
@@ -47,7 +51,7 @@ namespace ArcadePool.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "OrderID,ContractNumber,OrderDate,ShippingDate,RentalDate,ReturnDate,Price")] Order order)
+        public ActionResult Create([Bind(Include = "OrderID,ContractNumber,OrderDate,ShippingDate,RentalDate,ReturnDate,Price,CustomerID,ProviderID,CarrierRefId")] Order order)
         {
             if (ModelState.IsValid)
             {
@@ -56,6 +60,9 @@ namespace ArcadePool.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.CarrierRefId = new SelectList(db.Carriers, "CarrierID", "CarrierName", order.CarrierRefId);
+            ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "FirstName", order.CustomerID);
+            ViewBag.ProviderID = new SelectList(db.Providers, "ProviderID", "FirstName", order.ProviderID);
             return View(order);
         }
 
@@ -71,6 +78,9 @@ namespace ArcadePool.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.CarrierRefId = new SelectList(db.Carriers, "CarrierID", "CarrierName", order.CarrierRefId);
+            ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "FirstName", order.CustomerID);
+            ViewBag.ProviderID = new SelectList(db.Providers, "ProviderID", "FirstName", order.ProviderID);
             return View(order);
         }
 
@@ -79,7 +89,7 @@ namespace ArcadePool.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "OrderID,ContractNumber,OrderDate,ShippingDate,RentalDate,ReturnDate,Price")] Order order)
+        public ActionResult Edit([Bind(Include = "OrderID,ContractNumber,OrderDate,ShippingDate,RentalDate,ReturnDate,Price,CustomerID,ProviderID,CarrierRefId")] Order order)
         {
             if (ModelState.IsValid)
             {
@@ -87,6 +97,9 @@ namespace ArcadePool.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.CarrierRefId = new SelectList(db.Carriers, "CarrierID", "CarrierName", order.CarrierRefId);
+            ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "FirstName", order.CustomerID);
+            ViewBag.ProviderID = new SelectList(db.Providers, "ProviderID", "FirstName", order.ProviderID);
             return View(order);
         }
 

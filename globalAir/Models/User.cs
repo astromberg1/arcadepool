@@ -19,7 +19,8 @@ namespace ArcadePool.Models
         public string CompanyName { get; set; }
 
         [StringLength(50, MinimumLength = 3)]
-        [DisplayFormat(DataFormatString = "{0:yyMMdd-xxxx}", ApplyFormatInEditMode = true)]
+        
+        [DisplayFormat(DataFormatString = "{0:999999-9999}", ApplyFormatInEditMode = true)]
         public string OrganisationsNummer { get; set; }
         [StringLength(50, MinimumLength = 3)]
         public string Street { get; set; }

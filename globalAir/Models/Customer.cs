@@ -18,7 +18,7 @@ namespace ArcadePool.Models
         public decimal CreditLine { get; set; }
 
         //public User User { get; set; }
-        public List<Order> Orders { get; set; }
+        public ICollection<Order> Orders { get; set; }
         public Customer():base()
             {
             this.Orders = new List<Order>();

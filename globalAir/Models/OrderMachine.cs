@@ -27,9 +27,11 @@ namespace ArcadePool.Models
         [Column(TypeName = "money")]
         public decimal Price { get; set; }
 
-    //    public Machine MachineID { get; set; }
+        //    public Machine MachineID { get; set; }
+     //   [ForeignKey("Gametitle")]
 
-        public Gametitle GameTitleID { get; set; }
+     //   public int GametitleID { get; set; }
+     //   public virtual Gametitle GameTitle { get; set; }
 
 
 

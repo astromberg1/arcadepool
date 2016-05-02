@@ -31,11 +31,23 @@ namespace ArcadePool.Models
         [Column(TypeName = "money")]
         public decimal Price { get; set; }
 
+        [ForeignKey("Customer")]
+        public int CustomerID { get; set; }
+        public virtual Customer Customer { get; set; }
 
-        public Customer CustomerID { get; set; }
-        public Provider ProviderID { get; set; }
 
-        public Carrier CarrierID { get; set; }
+
+        [ForeignKey("Provider")]
+
+        public int ProviderID { get; set; }
+        public virtual Provider Provider { get; set; }
+
+        //Foreign key for Standard
+        public int CarrierRefId { get; set; }
+
+        [ForeignKey("CarrierRefId")]
+        
+        public Carrier Carrier { get; set; }
 
         //public List<Machine> Machines { get; set; }
 

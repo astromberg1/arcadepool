@@ -195,6 +195,7 @@
     <Content Include="Images\diagram1trans.png" />
     <Content Include="Images\digram2.jpg" />
     <Content Include="Images\Logo2.jpg" />
+    <Content Include="Images\machine.png" />
     <Content Include="Images\VxtWFc.gif" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />

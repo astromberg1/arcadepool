@@ -9,7 +9,7 @@ using System.Web.Mvc;
 using ArcadePool.DAL;
 using ArcadePool.Models;
 
-namespace globalAir.Controllers
+namespace ArcadePool.Controllers
 {
     public class GametitlesController : Controller
     {

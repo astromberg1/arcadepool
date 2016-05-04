@@ -191,6 +191,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\diagram.jpg" />
+    <Content Include="Images\diagram1trans.png" />
+    <Content Include="Images\digram2.jpg" />
+    <Content Include="Images\Logo2.jpg" />
+    <Content Include="Images\VxtWFc.gif" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -246,18 +251,19 @@
     <Content Include="Views\Orders\Details.cshtml" />
     <Content Include="Views\Orders\Edit.cshtml" />
     <Content Include="Views\Orders\Index.cshtml" />
-    <Content Include="Views\Providers\Create.cshtml" />
-    <Content Include="Views\Providers\Delete.cshtml" />
-    <Content Include="Views\Providers\Details.cshtml" />
-    <Content Include="Views\Providers\Edit.cshtml" />
-    <Content Include="Views\Providers\Index.cshtml" />
     <Content Include="Views\OrderMachines\Create.cshtml" />
     <Content Include="Views\OrderMachines\Delete.cshtml" />
     <Content Include="Views\OrderMachines\Details.cshtml" />
     <Content Include="Views\OrderMachines\Edit.cshtml" />
     <Content Include="Views\OrderMachines\Index.cshtml" />
+    <Content Include="Views\Providers\Create.cshtml" />
+    <Content Include="Views\Providers\Delete.cshtml" />
+    <Content Include="Views\Providers\Details.cshtml" />
+    <Content Include="Views\Providers\Edit.cshtml" />
+    <Content Include="Views\Providers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Browsers\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>

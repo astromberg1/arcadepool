@@ -11,6 +11,7 @@ namespace ArcadePool.Models
     {
     public class Carrier
         {
+      
         public int CarrierID { get; set; }
 
         [StringLength(50, MinimumLength = 3)]

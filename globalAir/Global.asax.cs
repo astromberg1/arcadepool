@@ -15,6 +15,7 @@ namespace ArcadePool
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            //routes.IgnoreRoute("WebForms/*/{resource}.aspx/{*pathInfo}");
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             }
         }

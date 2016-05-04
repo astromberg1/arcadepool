@@ -9,9 +9,13 @@ namespace ArcadePool.Models
     {
     public class Order
         {
+        [Column(Order = 0)]
+        [Required]
+        public int ContractNumber { get; set; }
+
         public int OrderID { get; set; }
 
-        public int ContractNumber { get; set; }
+       
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]

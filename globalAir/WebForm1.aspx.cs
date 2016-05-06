@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
 
 namespace WebApplication3
     {
@@ -27,14 +28,14 @@ namespace WebApplication3
 
         protected void Button3_Click(object sender, EventArgs e)
             {
-            GridView1.DataSource = SqlDataSource1;
+            GridView1.DataSource = SqlDataSource2;
             GridView1.DataBind();
 
             }
 
         protected void Button2_Click(object sender, EventArgs e)
             {
-            GridView1.DataSource = SqlDataSource2;
+            GridView1.DataSource = SqlDataSource1;
             GridView1.DataBind();
 
             }
@@ -79,6 +80,8 @@ namespace WebApplication3
             GridView1.DataBind();
 
             }
+
+  
 
         }
     }

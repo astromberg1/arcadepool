@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Untitled Page</title>
+    <title>ArcadePool Data Selections</title>
     <style type="text/css">
         #form1 {
             height: 325px;

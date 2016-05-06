@@ -77,8 +77,17 @@
             <SortedDescendingCellStyle BackColor="#CAC9C9" />
             <SortedDescendingHeaderStyle BackColor="#000065" />
         </asp:GridView>
-        <asp:GridView ID="GridView6"  runat="server" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical" Height="108px" AllowSorting="True" AutoGenerateSelectButton="True" DataSourceID="SqlDataSource6" >
+        <asp:GridView ID="GridView6"  runat="server" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical" Height="108px" AllowSorting="True" AutoGenerateSelectButton="True" DataSourceID="SqlDataSource6" AutoGenerateColumns="False" >
             <AlternatingRowStyle BackColor="#DCDCDC" />
+            <Columns>
+                <asp:BoundField DataField="CarrierName" HeaderText="CarrierName" SortExpression="CarrierName" />
+                <asp:BoundField DataField="GameName" HeaderText="GameName" SortExpression="GameName" />
+                <asp:BoundField DataField="SerialNumber" HeaderText="SerialNumber" SortExpression="SerialNumber" />
+                <asp:BoundField DataField="CompanyName" HeaderText="CompanyName" SortExpression="CompanyName" />
+                <asp:BoundField DataField="ContractNumber" HeaderText="ContractNumber" SortExpression="ContractNumber" />
+                <asp:BoundField DataField="Provider Company" HeaderText="Provider Company" SortExpression="Provider Company" />
+                <asp:BoundField DataField="ShippingDate" HeaderText="ShippingDate" SortExpression="ShippingDate" />
+            </Columns>
             <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
             <HeaderStyle BackColor="#000084" Font-Bold="True" ForeColor="White" />
             <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
@@ -134,7 +143,7 @@
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:ArcadePoolDBConnectionString %>" SelectCommand="spShowCarrierWhichProductTheyWillPickUp" SelectCommandType="StoredProcedure">
             <SelectParameters>
-                <asp:ControlParameter ControlID="TextBox1" DefaultValue="DHL" Name="CarrierName" PropertyName="Text" Type="String" />
+                <asp:ControlParameter ControlID="TextBox1" DefaultValue="Bring" Name="CarrierName" PropertyName="Text" Type="String" />
             </SelectParameters>
         </asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:ArcadePoolDBConnectionString %>" SelectCommand="spShowCompanyCustomers" SelectCommandType="StoredProcedure"></asp:SqlDataSource>

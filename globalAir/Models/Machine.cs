@@ -13,7 +13,8 @@ namespace ArcadePool.Models
         public int MachineID { get; set; }
 
 
-
+        [StringLength(50, MinimumLength = 3)]
+      
         [Required]
         public string SerialNumber { get; set; }
         [DataType(DataType.Date)]

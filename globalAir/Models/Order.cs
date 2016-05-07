@@ -10,12 +10,12 @@ namespace ArcadePool.Models
     public class Order
         {
         [Column(Order = 0)]
+       
+        public int OrderID { get; set; }
+
         [Required]
         public int ContractNumber { get; set; }
 
-        public int OrderID { get; set; }
-
-       
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
@@ -50,7 +50,7 @@ namespace ArcadePool.Models
         [ForeignKey("Carrier")]
         public int CarrierID{ get; set; }
 
-        public Carrier Carrier { get; set; }
+        public virtual Carrier Carrier { get; set; }
 
         //public List<Machine> Machines { get; set; }
 

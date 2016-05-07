@@ -205,9 +205,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Images\diagram.jpg" />
-    <Content Include="Images\diagram1trans.png" />
-    <Content Include="Images\digram2.jpg" />
+    <Content Include="Images\diagram.png" />
+    <Content Include="Images\diagram2.PNG" />
     <Content Include="Images\Logo2.jpg" />
     <Content Include="Images\machine.png" />
     <Content Include="Images\VxtWFc.gif" />

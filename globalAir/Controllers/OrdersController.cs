@@ -29,7 +29,11 @@ namespace ArcadePool.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Order order = db.Orders.Find(id);
+           
+            
+
             if (order == null)
             {
                 return HttpNotFound();

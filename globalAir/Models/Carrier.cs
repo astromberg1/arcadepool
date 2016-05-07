@@ -13,11 +13,11 @@ namespace ArcadePool.Models
         {
       
         public int CarrierID { get; set; }
-
+        [Required]
         [StringLength(50, MinimumLength = 3)]
         public string CarrierName { get; set; }
 
-        public List<Order> Orders { get; set; }
+        public ICollection<Order> Orders { get; set; }
         public Carrier()
 
             {

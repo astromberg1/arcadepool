@@ -216,6 +216,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="WebForm1.aspx" />
     <Content Include="WebUserControl1.ascx" />
+    <Content Include="ArcadePoolDB.bak" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

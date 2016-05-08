@@ -27,8 +27,39 @@
             <asp:Button ID="Button10" runat="server" OnClick="Button10_Click" Text="ShowPrivateCustomers" />
             <asp:TextBox ID="TextBox1" runat="server" Height="23px"></asp:TextBox>
             <asp:CheckBox ID="Automatic" runat="server" Checked="True" OnCheckedChanged="Automatic_CheckedChanged1" />
+            <asp:Button ID="Button11" runat="server" OnClick="Button11_Click" Text="ShowAllBookings" />
         </asp:Panel>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ArcadePoolDBConnectionString %>" SelectCommand="spDailyRentalprice" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource10" runat="server" ConnectionString="<%$ ConnectionStrings:ArcadePoolDBConnectionString %>" SelectCommand="spShowallBookings" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
+        <asp:GridView ID="GridView10"  runat="server" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical" Height="108px" AllowSorting="True" AutoGenerateSelectButton="True" DataSourceID="SqlDataSource10" AutoGenerateColumns="False" >
+            <AlternatingRowStyle BackColor="#DCDCDC" />
+            <Columns>
+                <asp:BoundField DataField="ContractNumber" HeaderText="ContractNumber" SortExpression="ContractNumber" />
+                <asp:BoundField DataField="SerialNumber" HeaderText="SerialNumber" SortExpression="SerialNumber" />
+                <asp:BoundField DataField="GameName" HeaderText="GameName" SortExpression="GameName" />
+                <asp:BoundField DataField="CustomerCompany" HeaderText="CustomerCompany" SortExpression="CustomerCompany" />
+                <asp:BoundField DataField="CustomerLname" HeaderText="CustomerLname" SortExpression="CustomerLname" />
+                <asp:BoundField DataField="ProviderCompany" HeaderText="ProviderCompany" SortExpression="ProviderCompany" />
+                <asp:BoundField DataField="ProviderLname" HeaderText="ProviderLname" SortExpression="ProviderLname" />
+                <asp:BoundField DataField="CarrierName" HeaderText="CarrierName" SortExpression="CarrierName" />
+                <asp:BoundField DataField="OrderDate" HeaderText="OrderDate" SortExpression="OrderDate" />
+                <asp:BoundField DataField="ShippingDate" HeaderText="ShippingDate" SortExpression="ShippingDate" />
+                <asp:BoundField DataField="RentalDate" HeaderText="RentalDate" SortExpression="RentalDate" />
+                <asp:BoundField DataField="ReturnDate" HeaderText="ReturnDate" SortExpression="ReturnDate" />
+                <asp:BoundField DataField="TotPrice" HeaderText="TotPrice" SortExpression="TotPrice" />
+                <asp:BoundField DataField="OrderLineNumber" HeaderText="OrderLineNumber" SortExpression="OrderLineNumber" />
+                <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" />
+            </Columns>
+            <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
+            <HeaderStyle BackColor="#000084" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+            <RowStyle BackColor="#EEEEEE" ForeColor="Black" />
+            <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="White" />
+            <SortedAscendingCellStyle BackColor="#F1F1F1" />
+            <SortedAscendingHeaderStyle BackColor="#0000A9" />
+            <SortedDescendingCellStyle BackColor="#CAC9C9" />
+            <SortedDescendingHeaderStyle BackColor="#000065" />
+        </asp:GridView>
         <asp:GridView ID="GridView2"  runat="server" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical" Height="108px" AllowSorting="True" AutoGenerateSelectButton="True" DataSourceID="SqlDataSource1" >
             <AlternatingRowStyle BackColor="#DCDCDC" />
             <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
@@ -65,8 +96,13 @@
             <SortedDescendingCellStyle BackColor="#CAC9C9" />
             <SortedDescendingHeaderStyle BackColor="#000065" />
         </asp:GridView>
-        <asp:GridView ID="GridView5"  runat="server" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical" Height="108px" AllowSorting="True" AutoGenerateSelectButton="True" DataSourceID="SqlDataSource4" >
+        <asp:GridView ID="GridView5"  runat="server" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical" Height="108px" AllowSorting="True" AutoGenerateSelectButton="True" DataSourceID="SqlDataSource4" AutoGenerateColumns="False" >
             <AlternatingRowStyle BackColor="#DCDCDC" />
+            <Columns>
+                <asp:BoundField DataField="Rental Company" HeaderText="Rental Company" SortExpression="Rental Company" />
+                <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName" />
+                <asp:BoundField DataField="Start Rental Day" HeaderText="Start Rental Day" SortExpression="Start Rental Day" />
+            </Columns>
             <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
             <HeaderStyle BackColor="#000084" Font-Bold="True" ForeColor="White" />
             <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />

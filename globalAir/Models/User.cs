@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 
 namespace ArcadePool.Models
@@ -10,9 +11,12 @@ namespace ArcadePool.Models
     public abstract class User
         {
         //       public int ID { get; set; }
+        
         [StringLength(50, MinimumLength = 3)]
 
         [DisplayFormat(DataFormatString = "{0:999999-9999}", ApplyFormatInEditMode = true)]
+        [Index(IsUnique = true)]
+        [Required]
         public string OrganisationsNummer { get; set; }
 
         [StringLength(50, MinimumLength = 2)]

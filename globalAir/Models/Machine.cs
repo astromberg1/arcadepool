@@ -16,6 +16,7 @@ namespace ArcadePool.Models
         [StringLength(50, MinimumLength = 3)]
       
         [Required]
+        [Index(IsUnique = true)]
         public string SerialNumber { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]

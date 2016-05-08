@@ -39,6 +39,7 @@ namespace ArcadePool
                 GridView7.Visible = false;
                 GridView8.Visible = false;
                 GridView9.Visible = false;
+                GridView10.Visible = false;
                 }
             else
                 {
@@ -51,6 +52,7 @@ namespace ArcadePool
                 GridView7.Visible = false;
                 GridView8.Visible = false;
                 GridView9.Visible = false;
+                GridView10.Visible = false;
                 GridView1.DataSource = SqlDataSource2;
                 GridView1.DataBind();
                 }
@@ -69,6 +71,7 @@ namespace ArcadePool
                 GridView7.Visible = false;
                 GridView8.Visible = false;
                 GridView9.Visible = false;
+                GridView10.Visible = false;
                 }
             else
                 {
@@ -81,6 +84,8 @@ namespace ArcadePool
                 GridView7.Visible = false;
                 GridView8.Visible = false;
                 GridView9.Visible = false;
+                GridView10.Visible = false;
+
 
                 GridView1.DataSource = SqlDataSource1;
                 GridView1.DataBind();
@@ -100,6 +105,7 @@ namespace ArcadePool
                 GridView7.Visible = false;
                 GridView8.Visible = false;
                 GridView9.Visible = false;
+                GridView10.Visible = false;
                 }
             else
                 {
@@ -112,7 +118,7 @@ namespace ArcadePool
                 GridView7.Visible = false;
                 GridView8.Visible = false;
                 GridView9.Visible = false;
-
+                GridView10.Visible = false;
                 GridView1.DataSource = SqlDataSource3;
                 GridView1.DataBind();
                 }
@@ -130,6 +136,7 @@ namespace ArcadePool
                 GridView7.Visible = false;
                 GridView8.Visible = false;
                 GridView9.Visible = false;
+                GridView10.Visible = false;
                 }
             else
                 {
@@ -142,7 +149,7 @@ namespace ArcadePool
                 GridView7.Visible = false;
                 GridView8.Visible = false;
                 GridView9.Visible = false;
-
+                GridView10.Visible = false;
                 GridView1.DataSource = SqlDataSource4;
                 GridView1.DataBind();
                 }
@@ -161,6 +168,7 @@ namespace ArcadePool
                 GridView7.Visible = false;
                 GridView8.Visible = false;
                 GridView9.Visible = true;
+                GridView10.Visible = false;
                 }
             else
                 {
@@ -173,6 +181,7 @@ namespace ArcadePool
                 GridView7.Visible = false;
                 GridView8.Visible = false;
                 GridView9.Visible = false;
+                GridView10.Visible = false;
 
                 GridView1.DataSource = SqlDataSource9;
                 GridView1.DataBind();
@@ -192,6 +201,7 @@ namespace ArcadePool
                 GridView7.Visible = false;
                 GridView8.Visible = false;
                 GridView9.Visible = false;
+                GridView10.Visible = false;
                 }
             else
                 {
@@ -204,6 +214,7 @@ namespace ArcadePool
                 GridView7.Visible = false;
                 GridView8.Visible = false;
                 GridView9.Visible = false;
+                GridView10.Visible = false;
 
                 GridView1.DataSource = SqlDataSource6;
                 GridView1.DataBind();
@@ -223,6 +234,7 @@ namespace ArcadePool
                 GridView7.Visible = true;
                 GridView8.Visible = false;
                 GridView9.Visible = false;
+                GridView10.Visible = false;
                 }
             else
                 {
@@ -235,6 +247,7 @@ namespace ArcadePool
                 GridView7.Visible = false;
                 GridView8.Visible = false;
                 GridView9.Visible = false;
+                GridView10.Visible = false;
 
                 GridView1.DataSource = SqlDataSource7;
                 GridView1.DataBind();
@@ -254,6 +267,7 @@ namespace ArcadePool
                 GridView7.Visible = false;
                 GridView8.Visible = true;
                 GridView9.Visible = false;
+                GridView10.Visible = false;
                 }
             else
                 {
@@ -266,13 +280,44 @@ namespace ArcadePool
                 GridView7.Visible = false;
                 GridView8.Visible = false;
                 GridView9.Visible = false;
-
+                GridView10.Visible = false;
                 GridView1.DataSource = SqlDataSource8;
                 GridView1.DataBind();
                 }
             }
 
-     
+        protected void Button11_Click(object sender, EventArgs e)
+            {
+            if (Automatic.Checked)
+                {
+                GridView1.Visible = false;
+                GridView2.Visible = false;
+                GridView3.Visible = false;
+                GridView4.Visible = false;
+                GridView5.Visible = false;
+                GridView6.Visible = false;
+                GridView7.Visible = false;
+                GridView8.Visible = false;
+                GridView9.Visible = false;
+                GridView10.Visible = true;
+                }
+            else
+                {
+                GridView1.Visible = true;
+                GridView2.Visible = false;
+                GridView3.Visible = false;
+                GridView4.Visible = false;
+                GridView5.Visible = false;
+                GridView6.Visible = false;
+                GridView7.Visible = false;
+                GridView8.Visible = false;
+                GridView9.Visible = false;
+                GridView10.Visible = false;
+                GridView1.DataSource = SqlDataSource10;
+                GridView1.DataBind();
+                }
+            }
+
 
         protected void Automatic_CheckedChanged1(object sender, EventArgs e)
             {
